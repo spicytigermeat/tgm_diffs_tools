@@ -1,13 +1,13 @@
 # TGM DiffSinger Tools
 In this repo, you'll find assorted DiffSinger tools I've created that I don't feel like making their own repo for.
 
+Requirements for most of these scripts:
+
+```click```
+
 ## csv2lab.py
 
 This tool can convert DiffSinger transcriptions (CSV, new format only) into HTK labels (that can be used in wavesurfer, etc.)
-
-Requirements:
-
-```click```
 
 How to use
 
@@ -25,13 +25,32 @@ Options:
   --help               Show this message and exit.
 ```
 
+## label_aliaser.py
+
+This tool can alias labels with an alias of your choosing, with default exceptions + the option to add your own exceptions.
+
+How to use:
+
+```python label_aliaser.py -i {path_to_labels} -a {alias} -e {exceptions, comma seperated}```
+
+Click help output:
+
+```
+Usage: label_aliaser.py [OPTIONS]
+
+  Tool to add aliases to HTK style singing labels.
+
+Options:
+  -i, --in_dir TEXT   Path to alias labels  [required]
+  -a, --alias TEXT    Alias to add to the end of labels.  [required]
+  -o, --out_dir TEXT  Path to export labels to.
+  -e, --excepts TEXT  Phonemes to ignore, seperated by a comma with no space.
+  --help              Show this message and exit.
+```
+
 ## val_config_tool.py
 
 This tool can automatically create the speaker part of the DiffSinger config. This requires DiffSinger format data (transcriptions.csv, wavs folder). It will automatically account for data being inside of "raw" folder, ensuring the name of the speaker is proper according to the folder.
-
-Requirements:
-
-```click```
 
 How to use:
 
